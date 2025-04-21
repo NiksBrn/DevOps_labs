@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Lab 1</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            background: linear-gradient(90deg, #ff6b6b, #feca57, #1dd1a1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .lab-link {
+            font-size: 1.8rem;
+            margin: 20px 0 0;
+            color: #e0e0e0;
+        }
+        
+        .lab-link a {
+            color: #7effdb; /* Неоново-бирюзовый */
+            text-decoration: none;
+            transition: all 0.3s;
+            border-bottom: 2px dashed transparent;
+        }
+        
+        .lab-link a:hover {
+            color: #feca57; /* Жёлтый при наведении */
+            border-bottom-color: #feca57;
+            text-shadow: 0 0 8px rgba(254, 202, 87, 0.5);
+        }
+        
+        .student {
+            font-size: 1.5rem;
+            color: #feca57;
+            font-weight: bold;
+            margin-top: 15px;
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 50px;
+            background: rgba(254, 202, 87, 0.1);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+            z-index: -1;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Анимированные частицы -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            for (let i = 0; i < 30; i++) {
+                createParticle();
+            }
+        });
+        
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            const size = Math.random() * 10 + 5;
+            const posX = Math.random() * window.innerWidth;
+            const delay = Math.random() * 15;
+            const duration = Math.random() * 10 + 10;
+            
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${posX}px`;
+            particle.style.bottom = `-${size}px`;
+            particle.style.animationDelay = `${delay}s`;
+            particle.style.animationDuration = `${duration}s`;
+            
+            document.body.appendChild(particle);
+        }
+    </script>
+    
+    <div class="container">
+        <h1>DevOps</h1>
+        <p class="lab-link">
+            <a href="https://gitlab.com/nikobrn/devops_lab_1" target="_blank">lab 1</a>
+        </p>
+        <div class="student">Skobelev Nikita student ETU</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  system:
+    build:
+      context: .
+      dockerfile: Dockerfile.system
+    image: $IMAGE_SYSTEM
+  build:
+    depends_on:
+      - system
+    build:
+      context: .
+      dockerfile: Dockerfile.build
+    image: $IMAGE_BUILD
+  app:
+    depends_on:
+      - build
+    container_name: cpp_app
+    image: $IMAGE_APP
+    build:
+      context: .
+      dockerfile: Dockerfile.run 
+    restart: unless-stopped
+    tty: true
+    stdin_open: true  

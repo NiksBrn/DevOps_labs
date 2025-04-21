@@ -1,0 +1,7 @@
+FROM cppapp-system:1.0
+
+WORKDIR /app
+
+COPY ./src .
+RUN ls -l
+RUN cmake -S . -B ./build && cmake --build build

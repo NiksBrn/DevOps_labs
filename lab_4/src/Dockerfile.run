@@ -1,0 +1,10 @@
+FROM alpine:3.21
+
+RUN adduser -D appuser
+USER appuser
+
+WORKDIR /app
+
+COPY --from=cppapp-build:1.0 /app/build/cw .
+
+ENTRYPOINT ["./cw"]

@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  app:
+    container_name: cpp_app
+    image: ${IMAGE_NAME}
+    build: ${DOCKERFILE_PATH}
+    restart: unless-stopped
+    tty: true
+    stdin_open: true  
